@@ -11,7 +11,7 @@ import { compare, hash } from 'bcrypt'
 
 import { UserStatus } from '../../generated/prisma/client'
 import { UsersService } from '../users/users.service'
-import { JwtPayload, SafeUser, toSafeUser } from './auth.types'
+import { type JwtPayload, type SafeUser, toSafeUser } from './auth.types'
 import { LoginDto } from './dto/login.dto'
 import { RegisterDto } from './dto/register.dto'
 

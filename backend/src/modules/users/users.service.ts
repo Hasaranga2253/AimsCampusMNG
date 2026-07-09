@@ -2,7 +2,7 @@ import { ConflictException, Inject, Injectable, InternalServerErrorException } f
 
 import { PrismaService } from '../../database/prisma.service'
 import { Prisma, RoleName, UserStatus } from '../../generated/prisma/client'
-import { userWithRolesInclude, UserWithRoles } from '../auth/auth.types'
+import { userWithRolesInclude, type UserWithRoles } from '../auth/auth.types'
 
 interface CreateStudentUserInput {
   firstName: string

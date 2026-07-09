@@ -5,6 +5,7 @@ import { PrismaModule } from './database/prisma.module'
 import { AuthModule } from './modules/auth/auth.module'
 import { HealthModule } from './modules/health/health.module'
 
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -13,6 +14,7 @@ import { HealthModule } from './modules/health/health.module'
     PrismaModule,
     AuthModule,
     HealthModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

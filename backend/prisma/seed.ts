@@ -14,7 +14,7 @@ const prisma = new PrismaClient({
   adapter: new PrismaPg({ connectionString }),
 })
 
-const roles: Array<{ name: RoleName; label: string }> = [
+const roles: ReadonlyArray<{ name: RoleName; label: string }> = [
   { name: RoleName.STUDENT, label: 'Student' },
   { name: RoleName.LECTURER, label: 'Lecturer' },
   { name: RoleName.INTERNAL_MODERATOR, label: 'Internal Moderator' },

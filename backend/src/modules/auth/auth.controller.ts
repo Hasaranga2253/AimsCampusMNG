@@ -6,63 +6,17 @@ import {
   ApiForbiddenResponse,
   ApiOkResponse,
   ApiOperation,
-  ApiProperty,
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger'
 
-import { RoleName, UserStatus } from '../../generated/prisma/client'
 import { CurrentUser } from './decorators/current-user.decorator'
 import { JwtAuthGuard } from './guards/jwt-auth.guard'
-import { JwtPayload } from './auth.types'
-import { AuthService, LoginResponse, RegisterResponse } from './auth.service'
+import type { JwtPayload } from './auth.types'
+import { AuthService, type LoginResponse, type RegisterResponse } from './auth.service'
+import { LoginResponseDto, RegisterResponseDto, SafeUserDto } from './dto/auth-response.dto'
 import { LoginDto } from './dto/login.dto'
 import { RegisterDto } from './dto/register.dto'
-
-class SafeUserDto {
-  @ApiProperty({ example: 'cm1234567890', type: String })
-  id!: string
-
-  @ApiProperty({ example: 'AIMS', type: String })
-  firstName!: string
-
-  @ApiProperty({ example: 'Student', type: String })
-  lastName!: string
-
-  @ApiProperty({ example: 'student@aims.local', type: String })
-  email!: string
-
-  @ApiProperty({ enum: UserStatus, enumName: 'UserStatus', type: String })
-  status!: UserStatus
-
-  @ApiProperty({ enum: RoleName, enumName: 'RoleName', isArray: true })
-  roles!: RoleName[]
-
-  @ApiProperty({ example: '2026-07-08T10:00:00.000Z', type: String })
-  createdAt!: string
-
-  @ApiProperty({ example: '2026-07-08T10:00:00.000Z', type: String })
-  updatedAt!: string
-}
-
-class RegisterResponseDto {
-  @ApiProperty({ example: 'Registration successful.', type: String })
-  message!: string
-
-  @ApiProperty({ type: SafeUserDto })
-  user!: SafeUserDto
-}
-
-class LoginResponseDto {
-  @ApiProperty({ example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9', type: String })
-  accessToken!: string
-
-  @ApiProperty({ example: 'Bearer', type: String })
-  tokenType!: 'Bearer'
-
-  @ApiProperty({ type: SafeUserDto })
-  user!: SafeUserDto
-}
 
 @ApiTags('Auth')
 @Controller('auth')
