@@ -10,9 +10,14 @@ export function LandingPage() {
           A unified workspace for course delivery, assessments, attendance, moderation, and academic
           operations across the campus.
         </p>
-        <Link className="button-link" to="/login">
-          Go to Login
-        </Link>
+        <div className="button-row">
+          <Link className="button-link" to="/login">
+            Go to Login
+          </Link>
+          <Link className="button-link button-link--secondary" to="/signup">
+            Create Student Account
+          </Link>
+        </div>
       </section>
     </main>
   )

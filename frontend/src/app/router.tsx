@@ -1,12 +1,13 @@
 import { createBrowserRouter, type RouteObject } from 'react-router-dom'
 
 import { DashboardPlaceholder } from '@/components/shared/dashboard-placeholder'
-import { USER_ROLES, type UserRole } from '@/types/auth'
 import { LandingPage } from '@/pages/public/landing-page'
 import { LoginPage } from '@/pages/public/login-page'
 import { NotFoundPage } from '@/pages/public/not-found-page'
+import { SignupPage } from '@/pages/public/signup-page'
 import { ProtectedRoute } from '@/routes/protected-route'
 import { RoleRoute } from '@/routes/role-route'
+import { USER_ROLES, type UserRole } from '@/types/auth'
 
 type DashboardRouteConfig = Readonly<{
   path: string
@@ -24,6 +25,7 @@ const dashboardRouteConfigs = [
 export const APP_ROUTE_PATHS: readonly string[] = [
   '/',
   '/login',
+  '/signup',
   ...dashboardRouteConfigs.map(({ path }) => path),
   '/missing-route',
 ]
@@ -47,6 +49,10 @@ export const appRoutes: RouteObject[] = [
   {
     path: '/login',
     element: <LoginPage />,
+  },
+  {
+    path: '/signup',
+    element: <SignupPage />,
   },
   ...dashboardRoutes,
   {
