@@ -23,7 +23,36 @@ export const RoleName = {
   LECTURER: 'LECTURER',
   INTERNAL_MODERATOR: 'INTERNAL_MODERATOR',
   PROGRAMME_COORDINATOR: 'PROGRAMME_COORDINATOR',
+  MODULE_LEADER: 'MODULE_LEADER',
   ADMIN: 'ADMIN'
 } as const
 
 export type RoleName = (typeof RoleName)[keyof typeof RoleName]
+
+
+export const EnrollmentStatus = {
+  ACTIVE: 'ACTIVE',
+  COMPLETED: 'COMPLETED',
+  WITHDRAWN: 'WITHDRAWN',
+  SUSPENDED: 'SUSPENDED'
+} as const
+
+export type EnrollmentStatus = (typeof EnrollmentStatus)[keyof typeof EnrollmentStatus]
+
+
+export const SemesterStatus = {
+  UPCOMING: 'UPCOMING',
+  ACTIVE: 'ACTIVE',
+  COMPLETED: 'COMPLETED'
+} as const
+
+export type SemesterStatus = (typeof SemesterStatus)[keyof typeof SemesterStatus]
+
+
+export const StaffAssignmentType = {
+  LECTURER: 'LECTURER',
+  MODULE_LEADER: 'MODULE_LEADER',
+  INTERNAL_MODERATOR: 'INTERNAL_MODERATOR'
+} as const
+
+export type StaffAssignmentType = (typeof StaffAssignmentType)[keyof typeof StaffAssignmentType]

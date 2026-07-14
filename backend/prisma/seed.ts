@@ -20,6 +20,7 @@ const roles: ReadonlyArray<{ name: RoleName; label: string }> = [
   { name: RoleName.INTERNAL_MODERATOR, label: 'Internal Moderator' },
   { name: RoleName.PROGRAMME_COORDINATOR, label: 'Programme Coordinator' },
   { name: RoleName.ADMIN, label: 'Administrator' },
+  { name: RoleName.MODULE_LEADER,label: 'Module Leader',},
 ]
 
 async function main(): Promise<void> {
