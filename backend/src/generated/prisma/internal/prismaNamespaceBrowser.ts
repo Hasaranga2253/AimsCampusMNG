@@ -53,7 +53,17 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   User: 'User',
   Role: 'Role',
-  UserRole: 'UserRole'
+  UserRole: 'UserRole',
+  Programme: 'Programme',
+  AcademicYear: 'AcademicYear',
+  Semester: 'Semester',
+  Batch: 'Batch',
+  AcademicModule: 'AcademicModule',
+  ProgrammeModule: 'ProgrammeModule',
+  StudentProfile: 'StudentProfile',
+  StaffProfile: 'StaffProfile',
+  StudentEnrollment: 'StudentEnrollment',
+  ModuleStaffAssignment: 'ModuleStaffAssignment'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -107,6 +117,148 @@ export const UserRoleScalarFieldEnum = {
 export type UserRoleScalarFieldEnum = (typeof UserRoleScalarFieldEnum)[keyof typeof UserRoleScalarFieldEnum]
 
 
+export const ProgrammeScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  name: 'name',
+  description: 'description',
+  durationYears: 'durationYears',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProgrammeScalarFieldEnum = (typeof ProgrammeScalarFieldEnum)[keyof typeof ProgrammeScalarFieldEnum]
+
+
+export const AcademicYearScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AcademicYearScalarFieldEnum = (typeof AcademicYearScalarFieldEnum)[keyof typeof AcademicYearScalarFieldEnum]
+
+
+export const SemesterScalarFieldEnum = {
+  id: 'id',
+  academicYearId: 'academicYearId',
+  number: 'number',
+  name: 'name',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SemesterScalarFieldEnum = (typeof SemesterScalarFieldEnum)[keyof typeof SemesterScalarFieldEnum]
+
+
+export const BatchScalarFieldEnum = {
+  id: 'id',
+  programmeId: 'programmeId',
+  code: 'code',
+  name: 'name',
+  startYear: 'startYear',
+  endYear: 'endYear',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type BatchScalarFieldEnum = (typeof BatchScalarFieldEnum)[keyof typeof BatchScalarFieldEnum]
+
+
+export const AcademicModuleScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  name: 'name',
+  description: 'description',
+  credits: 'credits',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AcademicModuleScalarFieldEnum = (typeof AcademicModuleScalarFieldEnum)[keyof typeof AcademicModuleScalarFieldEnum]
+
+
+export const ProgrammeModuleScalarFieldEnum = {
+  id: 'id',
+  programmeId: 'programmeId',
+  academicModuleId: 'academicModuleId',
+  semesterId: 'semesterId',
+  yearLevel: 'yearLevel',
+  isCore: 'isCore',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProgrammeModuleScalarFieldEnum = (typeof ProgrammeModuleScalarFieldEnum)[keyof typeof ProgrammeModuleScalarFieldEnum]
+
+
+export const StudentProfileScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  studentId: 'studentId',
+  phone: 'phone',
+  address: 'address',
+  dateOfBirth: 'dateOfBirth',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StudentProfileScalarFieldEnum = (typeof StudentProfileScalarFieldEnum)[keyof typeof StudentProfileScalarFieldEnum]
+
+
+export const StaffProfileScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  staffId: 'staffId',
+  phone: 'phone',
+  department: 'department',
+  designation: 'designation',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StaffProfileScalarFieldEnum = (typeof StaffProfileScalarFieldEnum)[keyof typeof StaffProfileScalarFieldEnum]
+
+
+export const StudentEnrollmentScalarFieldEnum = {
+  id: 'id',
+  studentProfileId: 'studentProfileId',
+  programmeId: 'programmeId',
+  batchId: 'batchId',
+  enrollmentDate: 'enrollmentDate',
+  status: 'status',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StudentEnrollmentScalarFieldEnum = (typeof StudentEnrollmentScalarFieldEnum)[keyof typeof StudentEnrollmentScalarFieldEnum]
+
+
+export const ModuleStaffAssignmentScalarFieldEnum = {
+  id: 'id',
+  programmeModuleId: 'programmeModuleId',
+  staffProfileId: 'staffProfileId',
+  assignmentType: 'assignmentType',
+  assignedAt: 'assignedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  academicModuleId: 'academicModuleId'
+} as const
+
+export type ModuleStaffAssignmentScalarFieldEnum = (typeof ModuleStaffAssignmentScalarFieldEnum)[keyof typeof ModuleStaffAssignmentScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -121,4 +273,12 @@ export const QueryMode = {
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
