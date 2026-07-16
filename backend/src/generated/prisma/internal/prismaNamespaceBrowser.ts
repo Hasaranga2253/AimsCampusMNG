@@ -252,8 +252,7 @@ export const ModuleStaffAssignmentScalarFieldEnum = {
   assignmentType: 'assignmentType',
   assignedAt: 'assignedAt',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  academicModuleId: 'academicModuleId'
+  updatedAt: 'updatedAt'
 } as const
 
 export type ModuleStaffAssignmentScalarFieldEnum = (typeof ModuleStaffAssignmentScalarFieldEnum)[keyof typeof ModuleStaffAssignmentScalarFieldEnum]
