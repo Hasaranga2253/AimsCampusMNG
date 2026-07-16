@@ -241,7 +241,6 @@ export type AcademicModuleWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"AcademicModule"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"AcademicModule"> | Date | string
   programmeLinks?: Prisma.ProgrammeModuleListRelationFilter
-  staffAssignments?: Prisma.ModuleStaffAssignmentListRelationFilter
 }
 
 export type AcademicModuleOrderByWithRelationInput = {
@@ -254,7 +253,6 @@ export type AcademicModuleOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   programmeLinks?: Prisma.ProgrammeModuleOrderByRelationAggregateInput
-  staffAssignments?: Prisma.ModuleStaffAssignmentOrderByRelationAggregateInput
 }
 
 export type AcademicModuleWhereUniqueInput = Prisma.AtLeast<{
@@ -270,7 +268,6 @@ export type AcademicModuleWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"AcademicModule"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"AcademicModule"> | Date | string
   programmeLinks?: Prisma.ProgrammeModuleListRelationFilter
-  staffAssignments?: Prisma.ModuleStaffAssignmentListRelationFilter
 }, "id" | "code">
 
 export type AcademicModuleOrderByWithAggregationInput = {
@@ -313,7 +310,6 @@ export type AcademicModuleCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   programmeLinks?: Prisma.ProgrammeModuleCreateNestedManyWithoutAcademicModuleInput
-  staffAssignments?: Prisma.ModuleStaffAssignmentCreateNestedManyWithoutAcademicModuleInput
 }
 
 export type AcademicModuleUncheckedCreateInput = {
@@ -326,7 +322,6 @@ export type AcademicModuleUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   programmeLinks?: Prisma.ProgrammeModuleUncheckedCreateNestedManyWithoutAcademicModuleInput
-  staffAssignments?: Prisma.ModuleStaffAssignmentUncheckedCreateNestedManyWithoutAcademicModuleInput
 }
 
 export type AcademicModuleUpdateInput = {
@@ -339,7 +334,6 @@ export type AcademicModuleUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   programmeLinks?: Prisma.ProgrammeModuleUpdateManyWithoutAcademicModuleNestedInput
-  staffAssignments?: Prisma.ModuleStaffAssignmentUpdateManyWithoutAcademicModuleNestedInput
 }
 
 export type AcademicModuleUncheckedUpdateInput = {
@@ -352,7 +346,6 @@ export type AcademicModuleUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   programmeLinks?: Prisma.ProgrammeModuleUncheckedUpdateManyWithoutAcademicModuleNestedInput
-  staffAssignments?: Prisma.ModuleStaffAssignmentUncheckedUpdateManyWithoutAcademicModuleNestedInput
 }
 
 export type AcademicModuleCreateManyInput = {
@@ -434,11 +427,6 @@ export type AcademicModuleScalarRelationFilter = {
   isNot?: Prisma.AcademicModuleWhereInput
 }
 
-export type AcademicModuleNullableScalarRelationFilter = {
-  is?: Prisma.AcademicModuleWhereInput | null
-  isNot?: Prisma.AcademicModuleWhereInput | null
-}
-
 export type AcademicModuleCreateNestedOneWithoutProgrammeLinksInput = {
   create?: Prisma.XOR<Prisma.AcademicModuleCreateWithoutProgrammeLinksInput, Prisma.AcademicModuleUncheckedCreateWithoutProgrammeLinksInput>
   connectOrCreate?: Prisma.AcademicModuleCreateOrConnectWithoutProgrammeLinksInput
@@ -453,22 +441,6 @@ export type AcademicModuleUpdateOneRequiredWithoutProgrammeLinksNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.AcademicModuleUpdateToOneWithWhereWithoutProgrammeLinksInput, Prisma.AcademicModuleUpdateWithoutProgrammeLinksInput>, Prisma.AcademicModuleUncheckedUpdateWithoutProgrammeLinksInput>
 }
 
-export type AcademicModuleCreateNestedOneWithoutStaffAssignmentsInput = {
-  create?: Prisma.XOR<Prisma.AcademicModuleCreateWithoutStaffAssignmentsInput, Prisma.AcademicModuleUncheckedCreateWithoutStaffAssignmentsInput>
-  connectOrCreate?: Prisma.AcademicModuleCreateOrConnectWithoutStaffAssignmentsInput
-  connect?: Prisma.AcademicModuleWhereUniqueInput
-}
-
-export type AcademicModuleUpdateOneWithoutStaffAssignmentsNestedInput = {
-  create?: Prisma.XOR<Prisma.AcademicModuleCreateWithoutStaffAssignmentsInput, Prisma.AcademicModuleUncheckedCreateWithoutStaffAssignmentsInput>
-  connectOrCreate?: Prisma.AcademicModuleCreateOrConnectWithoutStaffAssignmentsInput
-  upsert?: Prisma.AcademicModuleUpsertWithoutStaffAssignmentsInput
-  disconnect?: Prisma.AcademicModuleWhereInput | boolean
-  delete?: Prisma.AcademicModuleWhereInput | boolean
-  connect?: Prisma.AcademicModuleWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.AcademicModuleUpdateToOneWithWhereWithoutStaffAssignmentsInput, Prisma.AcademicModuleUpdateWithoutStaffAssignmentsInput>, Prisma.AcademicModuleUncheckedUpdateWithoutStaffAssignmentsInput>
-}
-
 export type AcademicModuleCreateWithoutProgrammeLinksInput = {
   id?: string
   code: string
@@ -478,7 +450,6 @@ export type AcademicModuleCreateWithoutProgrammeLinksInput = {
   isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  staffAssignments?: Prisma.ModuleStaffAssignmentCreateNestedManyWithoutAcademicModuleInput
 }
 
 export type AcademicModuleUncheckedCreateWithoutProgrammeLinksInput = {
@@ -490,7 +461,6 @@ export type AcademicModuleUncheckedCreateWithoutProgrammeLinksInput = {
   isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  staffAssignments?: Prisma.ModuleStaffAssignmentUncheckedCreateNestedManyWithoutAcademicModuleInput
 }
 
 export type AcademicModuleCreateOrConnectWithoutProgrammeLinksInput = {
@@ -518,7 +488,6 @@ export type AcademicModuleUpdateWithoutProgrammeLinksInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  staffAssignments?: Prisma.ModuleStaffAssignmentUpdateManyWithoutAcademicModuleNestedInput
 }
 
 export type AcademicModuleUncheckedUpdateWithoutProgrammeLinksInput = {
@@ -530,71 +499,6 @@ export type AcademicModuleUncheckedUpdateWithoutProgrammeLinksInput = {
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  staffAssignments?: Prisma.ModuleStaffAssignmentUncheckedUpdateManyWithoutAcademicModuleNestedInput
-}
-
-export type AcademicModuleCreateWithoutStaffAssignmentsInput = {
-  id?: string
-  code: string
-  name: string
-  description?: string | null
-  credits: number
-  isActive?: boolean
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  programmeLinks?: Prisma.ProgrammeModuleCreateNestedManyWithoutAcademicModuleInput
-}
-
-export type AcademicModuleUncheckedCreateWithoutStaffAssignmentsInput = {
-  id?: string
-  code: string
-  name: string
-  description?: string | null
-  credits: number
-  isActive?: boolean
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  programmeLinks?: Prisma.ProgrammeModuleUncheckedCreateNestedManyWithoutAcademicModuleInput
-}
-
-export type AcademicModuleCreateOrConnectWithoutStaffAssignmentsInput = {
-  where: Prisma.AcademicModuleWhereUniqueInput
-  create: Prisma.XOR<Prisma.AcademicModuleCreateWithoutStaffAssignmentsInput, Prisma.AcademicModuleUncheckedCreateWithoutStaffAssignmentsInput>
-}
-
-export type AcademicModuleUpsertWithoutStaffAssignmentsInput = {
-  update: Prisma.XOR<Prisma.AcademicModuleUpdateWithoutStaffAssignmentsInput, Prisma.AcademicModuleUncheckedUpdateWithoutStaffAssignmentsInput>
-  create: Prisma.XOR<Prisma.AcademicModuleCreateWithoutStaffAssignmentsInput, Prisma.AcademicModuleUncheckedCreateWithoutStaffAssignmentsInput>
-  where?: Prisma.AcademicModuleWhereInput
-}
-
-export type AcademicModuleUpdateToOneWithWhereWithoutStaffAssignmentsInput = {
-  where?: Prisma.AcademicModuleWhereInput
-  data: Prisma.XOR<Prisma.AcademicModuleUpdateWithoutStaffAssignmentsInput, Prisma.AcademicModuleUncheckedUpdateWithoutStaffAssignmentsInput>
-}
-
-export type AcademicModuleUpdateWithoutStaffAssignmentsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  code?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  credits?: Prisma.IntFieldUpdateOperationsInput | number
-  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  programmeLinks?: Prisma.ProgrammeModuleUpdateManyWithoutAcademicModuleNestedInput
-}
-
-export type AcademicModuleUncheckedUpdateWithoutStaffAssignmentsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  code?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  credits?: Prisma.IntFieldUpdateOperationsInput | number
-  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  programmeLinks?: Prisma.ProgrammeModuleUncheckedUpdateManyWithoutAcademicModuleNestedInput
 }
 
 
@@ -604,12 +508,10 @@ export type AcademicModuleUncheckedUpdateWithoutStaffAssignmentsInput = {
 
 export type AcademicModuleCountOutputType = {
   programmeLinks: number
-  staffAssignments: number
 }
 
 export type AcademicModuleCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   programmeLinks?: boolean | AcademicModuleCountOutputTypeCountProgrammeLinksArgs
-  staffAssignments?: boolean | AcademicModuleCountOutputTypeCountStaffAssignmentsArgs
 }
 
 /**
@@ -629,13 +531,6 @@ export type AcademicModuleCountOutputTypeCountProgrammeLinksArgs<ExtArgs extends
   where?: Prisma.ProgrammeModuleWhereInput
 }
 
-/**
- * AcademicModuleCountOutputType without action
- */
-export type AcademicModuleCountOutputTypeCountStaffAssignmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ModuleStaffAssignmentWhereInput
-}
-
 
 export type AcademicModuleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -647,7 +542,6 @@ export type AcademicModuleSelect<ExtArgs extends runtime.Types.Extensions.Intern
   createdAt?: boolean
   updatedAt?: boolean
   programmeLinks?: boolean | Prisma.AcademicModule$programmeLinksArgs<ExtArgs>
-  staffAssignments?: boolean | Prisma.AcademicModule$staffAssignmentsArgs<ExtArgs>
   _count?: boolean | Prisma.AcademicModuleCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["academicModule"]>
 
@@ -687,7 +581,6 @@ export type AcademicModuleSelectScalar = {
 export type AcademicModuleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "code" | "name" | "description" | "credits" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["academicModule"]>
 export type AcademicModuleInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   programmeLinks?: boolean | Prisma.AcademicModule$programmeLinksArgs<ExtArgs>
-  staffAssignments?: boolean | Prisma.AcademicModule$staffAssignmentsArgs<ExtArgs>
   _count?: boolean | Prisma.AcademicModuleCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type AcademicModuleIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -697,7 +590,6 @@ export type $AcademicModulePayload<ExtArgs extends runtime.Types.Extensions.Inte
   name: "AcademicModule"
   objects: {
     programmeLinks: Prisma.$ProgrammeModulePayload<ExtArgs>[]
-    staffAssignments: Prisma.$ModuleStaffAssignmentPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1103,7 +995,6 @@ readonly fields: AcademicModuleFieldRefs;
 export interface Prisma__AcademicModuleClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   programmeLinks<T extends Prisma.AcademicModule$programmeLinksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AcademicModule$programmeLinksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProgrammeModulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  staffAssignments<T extends Prisma.AcademicModule$staffAssignmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AcademicModule$staffAssignmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ModuleStaffAssignmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1555,30 +1446,6 @@ export type AcademicModule$programmeLinksArgs<ExtArgs extends runtime.Types.Exte
   take?: number
   skip?: number
   distinct?: Prisma.ProgrammeModuleScalarFieldEnum | Prisma.ProgrammeModuleScalarFieldEnum[]
-}
-
-/**
- * AcademicModule.staffAssignments
- */
-export type AcademicModule$staffAssignmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the ModuleStaffAssignment
-   */
-  select?: Prisma.ModuleStaffAssignmentSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the ModuleStaffAssignment
-   */
-  omit?: Prisma.ModuleStaffAssignmentOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ModuleStaffAssignmentInclude<ExtArgs> | null
-  where?: Prisma.ModuleStaffAssignmentWhereInput
-  orderBy?: Prisma.ModuleStaffAssignmentOrderByWithRelationInput | Prisma.ModuleStaffAssignmentOrderByWithRelationInput[]
-  cursor?: Prisma.ModuleStaffAssignmentWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.ModuleStaffAssignmentScalarFieldEnum | Prisma.ModuleStaffAssignmentScalarFieldEnum[]
 }
 
 /**

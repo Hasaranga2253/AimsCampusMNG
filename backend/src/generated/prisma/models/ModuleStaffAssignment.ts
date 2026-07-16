@@ -32,7 +32,6 @@ export type ModuleStaffAssignmentMinAggregateOutputType = {
   assignedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
-  academicModuleId: string | null
 }
 
 export type ModuleStaffAssignmentMaxAggregateOutputType = {
@@ -43,7 +42,6 @@ export type ModuleStaffAssignmentMaxAggregateOutputType = {
   assignedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
-  academicModuleId: string | null
 }
 
 export type ModuleStaffAssignmentCountAggregateOutputType = {
@@ -54,7 +52,6 @@ export type ModuleStaffAssignmentCountAggregateOutputType = {
   assignedAt: number
   createdAt: number
   updatedAt: number
-  academicModuleId: number
   _all: number
 }
 
@@ -67,7 +64,6 @@ export type ModuleStaffAssignmentMinAggregateInputType = {
   assignedAt?: true
   createdAt?: true
   updatedAt?: true
-  academicModuleId?: true
 }
 
 export type ModuleStaffAssignmentMaxAggregateInputType = {
@@ -78,7 +74,6 @@ export type ModuleStaffAssignmentMaxAggregateInputType = {
   assignedAt?: true
   createdAt?: true
   updatedAt?: true
-  academicModuleId?: true
 }
 
 export type ModuleStaffAssignmentCountAggregateInputType = {
@@ -89,7 +84,6 @@ export type ModuleStaffAssignmentCountAggregateInputType = {
   assignedAt?: true
   createdAt?: true
   updatedAt?: true
-  academicModuleId?: true
   _all?: true
 }
 
@@ -173,7 +167,6 @@ export type ModuleStaffAssignmentGroupByOutputType = {
   assignedAt: Date
   createdAt: Date
   updatedAt: Date
-  academicModuleId: string | null
   _count: ModuleStaffAssignmentCountAggregateOutputType | null
   _min: ModuleStaffAssignmentMinAggregateOutputType | null
   _max: ModuleStaffAssignmentMaxAggregateOutputType | null
@@ -205,10 +198,8 @@ export type ModuleStaffAssignmentWhereInput = {
   assignedAt?: Prisma.DateTimeFilter<"ModuleStaffAssignment"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"ModuleStaffAssignment"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ModuleStaffAssignment"> | Date | string
-  academicModuleId?: Prisma.StringNullableFilter<"ModuleStaffAssignment"> | string | null
   programmeModule?: Prisma.XOR<Prisma.ProgrammeModuleScalarRelationFilter, Prisma.ProgrammeModuleWhereInput>
   staffProfile?: Prisma.XOR<Prisma.StaffProfileScalarRelationFilter, Prisma.StaffProfileWhereInput>
-  academicModule?: Prisma.XOR<Prisma.AcademicModuleNullableScalarRelationFilter, Prisma.AcademicModuleWhereInput> | null
 }
 
 export type ModuleStaffAssignmentOrderByWithRelationInput = {
@@ -219,10 +210,8 @@ export type ModuleStaffAssignmentOrderByWithRelationInput = {
   assignedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  academicModuleId?: Prisma.SortOrderInput | Prisma.SortOrder
   programmeModule?: Prisma.ProgrammeModuleOrderByWithRelationInput
   staffProfile?: Prisma.StaffProfileOrderByWithRelationInput
-  academicModule?: Prisma.AcademicModuleOrderByWithRelationInput
 }
 
 export type ModuleStaffAssignmentWhereUniqueInput = Prisma.AtLeast<{
@@ -237,10 +226,8 @@ export type ModuleStaffAssignmentWhereUniqueInput = Prisma.AtLeast<{
   assignedAt?: Prisma.DateTimeFilter<"ModuleStaffAssignment"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"ModuleStaffAssignment"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ModuleStaffAssignment"> | Date | string
-  academicModuleId?: Prisma.StringNullableFilter<"ModuleStaffAssignment"> | string | null
   programmeModule?: Prisma.XOR<Prisma.ProgrammeModuleScalarRelationFilter, Prisma.ProgrammeModuleWhereInput>
   staffProfile?: Prisma.XOR<Prisma.StaffProfileScalarRelationFilter, Prisma.StaffProfileWhereInput>
-  academicModule?: Prisma.XOR<Prisma.AcademicModuleNullableScalarRelationFilter, Prisma.AcademicModuleWhereInput> | null
 }, "id" | "programmeModuleId_staffProfileId_assignmentType">
 
 export type ModuleStaffAssignmentOrderByWithAggregationInput = {
@@ -251,7 +238,6 @@ export type ModuleStaffAssignmentOrderByWithAggregationInput = {
   assignedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  academicModuleId?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.ModuleStaffAssignmentCountOrderByAggregateInput
   _max?: Prisma.ModuleStaffAssignmentMaxOrderByAggregateInput
   _min?: Prisma.ModuleStaffAssignmentMinOrderByAggregateInput
@@ -268,7 +254,6 @@ export type ModuleStaffAssignmentScalarWhereWithAggregatesInput = {
   assignedAt?: Prisma.DateTimeWithAggregatesFilter<"ModuleStaffAssignment"> | Date | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"ModuleStaffAssignment"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"ModuleStaffAssignment"> | Date | string
-  academicModuleId?: Prisma.StringNullableWithAggregatesFilter<"ModuleStaffAssignment"> | string | null
 }
 
 export type ModuleStaffAssignmentCreateInput = {
@@ -279,7 +264,6 @@ export type ModuleStaffAssignmentCreateInput = {
   updatedAt?: Date | string
   programmeModule: Prisma.ProgrammeModuleCreateNestedOneWithoutStaffAssignmentsInput
   staffProfile: Prisma.StaffProfileCreateNestedOneWithoutAssignmentsInput
-  academicModule?: Prisma.AcademicModuleCreateNestedOneWithoutStaffAssignmentsInput
 }
 
 export type ModuleStaffAssignmentUncheckedCreateInput = {
@@ -290,7 +274,6 @@ export type ModuleStaffAssignmentUncheckedCreateInput = {
   assignedAt?: Date | string
   createdAt?: Date | string
   updatedAt?: Date | string
-  academicModuleId?: string | null
 }
 
 export type ModuleStaffAssignmentUpdateInput = {
@@ -301,7 +284,6 @@ export type ModuleStaffAssignmentUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   programmeModule?: Prisma.ProgrammeModuleUpdateOneRequiredWithoutStaffAssignmentsNestedInput
   staffProfile?: Prisma.StaffProfileUpdateOneRequiredWithoutAssignmentsNestedInput
-  academicModule?: Prisma.AcademicModuleUpdateOneWithoutStaffAssignmentsNestedInput
 }
 
 export type ModuleStaffAssignmentUncheckedUpdateInput = {
@@ -312,7 +294,6 @@ export type ModuleStaffAssignmentUncheckedUpdateInput = {
   assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  academicModuleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ModuleStaffAssignmentCreateManyInput = {
@@ -323,7 +304,6 @@ export type ModuleStaffAssignmentCreateManyInput = {
   assignedAt?: Date | string
   createdAt?: Date | string
   updatedAt?: Date | string
-  academicModuleId?: string | null
 }
 
 export type ModuleStaffAssignmentUpdateManyMutationInput = {
@@ -342,7 +322,6 @@ export type ModuleStaffAssignmentUncheckedUpdateManyInput = {
   assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  academicModuleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ModuleStaffAssignmentListRelationFilter = {
@@ -369,7 +348,6 @@ export type ModuleStaffAssignmentCountOrderByAggregateInput = {
   assignedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  academicModuleId?: Prisma.SortOrder
 }
 
 export type ModuleStaffAssignmentMaxOrderByAggregateInput = {
@@ -380,7 +358,6 @@ export type ModuleStaffAssignmentMaxOrderByAggregateInput = {
   assignedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  academicModuleId?: Prisma.SortOrder
 }
 
 export type ModuleStaffAssignmentMinOrderByAggregateInput = {
@@ -391,49 +368,6 @@ export type ModuleStaffAssignmentMinOrderByAggregateInput = {
   assignedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  academicModuleId?: Prisma.SortOrder
-}
-
-export type ModuleStaffAssignmentCreateNestedManyWithoutAcademicModuleInput = {
-  create?: Prisma.XOR<Prisma.ModuleStaffAssignmentCreateWithoutAcademicModuleInput, Prisma.ModuleStaffAssignmentUncheckedCreateWithoutAcademicModuleInput> | Prisma.ModuleStaffAssignmentCreateWithoutAcademicModuleInput[] | Prisma.ModuleStaffAssignmentUncheckedCreateWithoutAcademicModuleInput[]
-  connectOrCreate?: Prisma.ModuleStaffAssignmentCreateOrConnectWithoutAcademicModuleInput | Prisma.ModuleStaffAssignmentCreateOrConnectWithoutAcademicModuleInput[]
-  createMany?: Prisma.ModuleStaffAssignmentCreateManyAcademicModuleInputEnvelope
-  connect?: Prisma.ModuleStaffAssignmentWhereUniqueInput | Prisma.ModuleStaffAssignmentWhereUniqueInput[]
-}
-
-export type ModuleStaffAssignmentUncheckedCreateNestedManyWithoutAcademicModuleInput = {
-  create?: Prisma.XOR<Prisma.ModuleStaffAssignmentCreateWithoutAcademicModuleInput, Prisma.ModuleStaffAssignmentUncheckedCreateWithoutAcademicModuleInput> | Prisma.ModuleStaffAssignmentCreateWithoutAcademicModuleInput[] | Prisma.ModuleStaffAssignmentUncheckedCreateWithoutAcademicModuleInput[]
-  connectOrCreate?: Prisma.ModuleStaffAssignmentCreateOrConnectWithoutAcademicModuleInput | Prisma.ModuleStaffAssignmentCreateOrConnectWithoutAcademicModuleInput[]
-  createMany?: Prisma.ModuleStaffAssignmentCreateManyAcademicModuleInputEnvelope
-  connect?: Prisma.ModuleStaffAssignmentWhereUniqueInput | Prisma.ModuleStaffAssignmentWhereUniqueInput[]
-}
-
-export type ModuleStaffAssignmentUpdateManyWithoutAcademicModuleNestedInput = {
-  create?: Prisma.XOR<Prisma.ModuleStaffAssignmentCreateWithoutAcademicModuleInput, Prisma.ModuleStaffAssignmentUncheckedCreateWithoutAcademicModuleInput> | Prisma.ModuleStaffAssignmentCreateWithoutAcademicModuleInput[] | Prisma.ModuleStaffAssignmentUncheckedCreateWithoutAcademicModuleInput[]
-  connectOrCreate?: Prisma.ModuleStaffAssignmentCreateOrConnectWithoutAcademicModuleInput | Prisma.ModuleStaffAssignmentCreateOrConnectWithoutAcademicModuleInput[]
-  upsert?: Prisma.ModuleStaffAssignmentUpsertWithWhereUniqueWithoutAcademicModuleInput | Prisma.ModuleStaffAssignmentUpsertWithWhereUniqueWithoutAcademicModuleInput[]
-  createMany?: Prisma.ModuleStaffAssignmentCreateManyAcademicModuleInputEnvelope
-  set?: Prisma.ModuleStaffAssignmentWhereUniqueInput | Prisma.ModuleStaffAssignmentWhereUniqueInput[]
-  disconnect?: Prisma.ModuleStaffAssignmentWhereUniqueInput | Prisma.ModuleStaffAssignmentWhereUniqueInput[]
-  delete?: Prisma.ModuleStaffAssignmentWhereUniqueInput | Prisma.ModuleStaffAssignmentWhereUniqueInput[]
-  connect?: Prisma.ModuleStaffAssignmentWhereUniqueInput | Prisma.ModuleStaffAssignmentWhereUniqueInput[]
-  update?: Prisma.ModuleStaffAssignmentUpdateWithWhereUniqueWithoutAcademicModuleInput | Prisma.ModuleStaffAssignmentUpdateWithWhereUniqueWithoutAcademicModuleInput[]
-  updateMany?: Prisma.ModuleStaffAssignmentUpdateManyWithWhereWithoutAcademicModuleInput | Prisma.ModuleStaffAssignmentUpdateManyWithWhereWithoutAcademicModuleInput[]
-  deleteMany?: Prisma.ModuleStaffAssignmentScalarWhereInput | Prisma.ModuleStaffAssignmentScalarWhereInput[]
-}
-
-export type ModuleStaffAssignmentUncheckedUpdateManyWithoutAcademicModuleNestedInput = {
-  create?: Prisma.XOR<Prisma.ModuleStaffAssignmentCreateWithoutAcademicModuleInput, Prisma.ModuleStaffAssignmentUncheckedCreateWithoutAcademicModuleInput> | Prisma.ModuleStaffAssignmentCreateWithoutAcademicModuleInput[] | Prisma.ModuleStaffAssignmentUncheckedCreateWithoutAcademicModuleInput[]
-  connectOrCreate?: Prisma.ModuleStaffAssignmentCreateOrConnectWithoutAcademicModuleInput | Prisma.ModuleStaffAssignmentCreateOrConnectWithoutAcademicModuleInput[]
-  upsert?: Prisma.ModuleStaffAssignmentUpsertWithWhereUniqueWithoutAcademicModuleInput | Prisma.ModuleStaffAssignmentUpsertWithWhereUniqueWithoutAcademicModuleInput[]
-  createMany?: Prisma.ModuleStaffAssignmentCreateManyAcademicModuleInputEnvelope
-  set?: Prisma.ModuleStaffAssignmentWhereUniqueInput | Prisma.ModuleStaffAssignmentWhereUniqueInput[]
-  disconnect?: Prisma.ModuleStaffAssignmentWhereUniqueInput | Prisma.ModuleStaffAssignmentWhereUniqueInput[]
-  delete?: Prisma.ModuleStaffAssignmentWhereUniqueInput | Prisma.ModuleStaffAssignmentWhereUniqueInput[]
-  connect?: Prisma.ModuleStaffAssignmentWhereUniqueInput | Prisma.ModuleStaffAssignmentWhereUniqueInput[]
-  update?: Prisma.ModuleStaffAssignmentUpdateWithWhereUniqueWithoutAcademicModuleInput | Prisma.ModuleStaffAssignmentUpdateWithWhereUniqueWithoutAcademicModuleInput[]
-  updateMany?: Prisma.ModuleStaffAssignmentUpdateManyWithWhereWithoutAcademicModuleInput | Prisma.ModuleStaffAssignmentUpdateManyWithWhereWithoutAcademicModuleInput[]
-  deleteMany?: Prisma.ModuleStaffAssignmentScalarWhereInput | Prisma.ModuleStaffAssignmentScalarWhereInput[]
 }
 
 export type ModuleStaffAssignmentCreateNestedManyWithoutProgrammeModuleInput = {
@@ -524,66 +458,6 @@ export type EnumStaffAssignmentTypeFieldUpdateOperationsInput = {
   set?: $Enums.StaffAssignmentType
 }
 
-export type ModuleStaffAssignmentCreateWithoutAcademicModuleInput = {
-  id?: string
-  assignmentType: $Enums.StaffAssignmentType
-  assignedAt?: Date | string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  programmeModule: Prisma.ProgrammeModuleCreateNestedOneWithoutStaffAssignmentsInput
-  staffProfile: Prisma.StaffProfileCreateNestedOneWithoutAssignmentsInput
-}
-
-export type ModuleStaffAssignmentUncheckedCreateWithoutAcademicModuleInput = {
-  id?: string
-  programmeModuleId: string
-  staffProfileId: string
-  assignmentType: $Enums.StaffAssignmentType
-  assignedAt?: Date | string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-}
-
-export type ModuleStaffAssignmentCreateOrConnectWithoutAcademicModuleInput = {
-  where: Prisma.ModuleStaffAssignmentWhereUniqueInput
-  create: Prisma.XOR<Prisma.ModuleStaffAssignmentCreateWithoutAcademicModuleInput, Prisma.ModuleStaffAssignmentUncheckedCreateWithoutAcademicModuleInput>
-}
-
-export type ModuleStaffAssignmentCreateManyAcademicModuleInputEnvelope = {
-  data: Prisma.ModuleStaffAssignmentCreateManyAcademicModuleInput | Prisma.ModuleStaffAssignmentCreateManyAcademicModuleInput[]
-  skipDuplicates?: boolean
-}
-
-export type ModuleStaffAssignmentUpsertWithWhereUniqueWithoutAcademicModuleInput = {
-  where: Prisma.ModuleStaffAssignmentWhereUniqueInput
-  update: Prisma.XOR<Prisma.ModuleStaffAssignmentUpdateWithoutAcademicModuleInput, Prisma.ModuleStaffAssignmentUncheckedUpdateWithoutAcademicModuleInput>
-  create: Prisma.XOR<Prisma.ModuleStaffAssignmentCreateWithoutAcademicModuleInput, Prisma.ModuleStaffAssignmentUncheckedCreateWithoutAcademicModuleInput>
-}
-
-export type ModuleStaffAssignmentUpdateWithWhereUniqueWithoutAcademicModuleInput = {
-  where: Prisma.ModuleStaffAssignmentWhereUniqueInput
-  data: Prisma.XOR<Prisma.ModuleStaffAssignmentUpdateWithoutAcademicModuleInput, Prisma.ModuleStaffAssignmentUncheckedUpdateWithoutAcademicModuleInput>
-}
-
-export type ModuleStaffAssignmentUpdateManyWithWhereWithoutAcademicModuleInput = {
-  where: Prisma.ModuleStaffAssignmentScalarWhereInput
-  data: Prisma.XOR<Prisma.ModuleStaffAssignmentUpdateManyMutationInput, Prisma.ModuleStaffAssignmentUncheckedUpdateManyWithoutAcademicModuleInput>
-}
-
-export type ModuleStaffAssignmentScalarWhereInput = {
-  AND?: Prisma.ModuleStaffAssignmentScalarWhereInput | Prisma.ModuleStaffAssignmentScalarWhereInput[]
-  OR?: Prisma.ModuleStaffAssignmentScalarWhereInput[]
-  NOT?: Prisma.ModuleStaffAssignmentScalarWhereInput | Prisma.ModuleStaffAssignmentScalarWhereInput[]
-  id?: Prisma.StringFilter<"ModuleStaffAssignment"> | string
-  programmeModuleId?: Prisma.StringFilter<"ModuleStaffAssignment"> | string
-  staffProfileId?: Prisma.StringFilter<"ModuleStaffAssignment"> | string
-  assignmentType?: Prisma.EnumStaffAssignmentTypeFilter<"ModuleStaffAssignment"> | $Enums.StaffAssignmentType
-  assignedAt?: Prisma.DateTimeFilter<"ModuleStaffAssignment"> | Date | string
-  createdAt?: Prisma.DateTimeFilter<"ModuleStaffAssignment"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"ModuleStaffAssignment"> | Date | string
-  academicModuleId?: Prisma.StringNullableFilter<"ModuleStaffAssignment"> | string | null
-}
-
 export type ModuleStaffAssignmentCreateWithoutProgrammeModuleInput = {
   id?: string
   assignmentType: $Enums.StaffAssignmentType
@@ -591,7 +465,6 @@ export type ModuleStaffAssignmentCreateWithoutProgrammeModuleInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   staffProfile: Prisma.StaffProfileCreateNestedOneWithoutAssignmentsInput
-  academicModule?: Prisma.AcademicModuleCreateNestedOneWithoutStaffAssignmentsInput
 }
 
 export type ModuleStaffAssignmentUncheckedCreateWithoutProgrammeModuleInput = {
@@ -601,7 +474,6 @@ export type ModuleStaffAssignmentUncheckedCreateWithoutProgrammeModuleInput = {
   assignedAt?: Date | string
   createdAt?: Date | string
   updatedAt?: Date | string
-  academicModuleId?: string | null
 }
 
 export type ModuleStaffAssignmentCreateOrConnectWithoutProgrammeModuleInput = {
@@ -630,6 +502,19 @@ export type ModuleStaffAssignmentUpdateManyWithWhereWithoutProgrammeModuleInput 
   data: Prisma.XOR<Prisma.ModuleStaffAssignmentUpdateManyMutationInput, Prisma.ModuleStaffAssignmentUncheckedUpdateManyWithoutProgrammeModuleInput>
 }
 
+export type ModuleStaffAssignmentScalarWhereInput = {
+  AND?: Prisma.ModuleStaffAssignmentScalarWhereInput | Prisma.ModuleStaffAssignmentScalarWhereInput[]
+  OR?: Prisma.ModuleStaffAssignmentScalarWhereInput[]
+  NOT?: Prisma.ModuleStaffAssignmentScalarWhereInput | Prisma.ModuleStaffAssignmentScalarWhereInput[]
+  id?: Prisma.StringFilter<"ModuleStaffAssignment"> | string
+  programmeModuleId?: Prisma.StringFilter<"ModuleStaffAssignment"> | string
+  staffProfileId?: Prisma.StringFilter<"ModuleStaffAssignment"> | string
+  assignmentType?: Prisma.EnumStaffAssignmentTypeFilter<"ModuleStaffAssignment"> | $Enums.StaffAssignmentType
+  assignedAt?: Prisma.DateTimeFilter<"ModuleStaffAssignment"> | Date | string
+  createdAt?: Prisma.DateTimeFilter<"ModuleStaffAssignment"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"ModuleStaffAssignment"> | Date | string
+}
+
 export type ModuleStaffAssignmentCreateWithoutStaffProfileInput = {
   id?: string
   assignmentType: $Enums.StaffAssignmentType
@@ -637,7 +522,6 @@ export type ModuleStaffAssignmentCreateWithoutStaffProfileInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   programmeModule: Prisma.ProgrammeModuleCreateNestedOneWithoutStaffAssignmentsInput
-  academicModule?: Prisma.AcademicModuleCreateNestedOneWithoutStaffAssignmentsInput
 }
 
 export type ModuleStaffAssignmentUncheckedCreateWithoutStaffProfileInput = {
@@ -647,7 +531,6 @@ export type ModuleStaffAssignmentUncheckedCreateWithoutStaffProfileInput = {
   assignedAt?: Date | string
   createdAt?: Date | string
   updatedAt?: Date | string
-  academicModuleId?: string | null
 }
 
 export type ModuleStaffAssignmentCreateOrConnectWithoutStaffProfileInput = {
@@ -676,46 +559,6 @@ export type ModuleStaffAssignmentUpdateManyWithWhereWithoutStaffProfileInput = {
   data: Prisma.XOR<Prisma.ModuleStaffAssignmentUpdateManyMutationInput, Prisma.ModuleStaffAssignmentUncheckedUpdateManyWithoutStaffProfileInput>
 }
 
-export type ModuleStaffAssignmentCreateManyAcademicModuleInput = {
-  id?: string
-  programmeModuleId: string
-  staffProfileId: string
-  assignmentType: $Enums.StaffAssignmentType
-  assignedAt?: Date | string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-}
-
-export type ModuleStaffAssignmentUpdateWithoutAcademicModuleInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  assignmentType?: Prisma.EnumStaffAssignmentTypeFieldUpdateOperationsInput | $Enums.StaffAssignmentType
-  assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  programmeModule?: Prisma.ProgrammeModuleUpdateOneRequiredWithoutStaffAssignmentsNestedInput
-  staffProfile?: Prisma.StaffProfileUpdateOneRequiredWithoutAssignmentsNestedInput
-}
-
-export type ModuleStaffAssignmentUncheckedUpdateWithoutAcademicModuleInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  programmeModuleId?: Prisma.StringFieldUpdateOperationsInput | string
-  staffProfileId?: Prisma.StringFieldUpdateOperationsInput | string
-  assignmentType?: Prisma.EnumStaffAssignmentTypeFieldUpdateOperationsInput | $Enums.StaffAssignmentType
-  assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type ModuleStaffAssignmentUncheckedUpdateManyWithoutAcademicModuleInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  programmeModuleId?: Prisma.StringFieldUpdateOperationsInput | string
-  staffProfileId?: Prisma.StringFieldUpdateOperationsInput | string
-  assignmentType?: Prisma.EnumStaffAssignmentTypeFieldUpdateOperationsInput | $Enums.StaffAssignmentType
-  assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
 export type ModuleStaffAssignmentCreateManyProgrammeModuleInput = {
   id?: string
   staffProfileId: string
@@ -723,7 +566,6 @@ export type ModuleStaffAssignmentCreateManyProgrammeModuleInput = {
   assignedAt?: Date | string
   createdAt?: Date | string
   updatedAt?: Date | string
-  academicModuleId?: string | null
 }
 
 export type ModuleStaffAssignmentUpdateWithoutProgrammeModuleInput = {
@@ -733,7 +575,6 @@ export type ModuleStaffAssignmentUpdateWithoutProgrammeModuleInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   staffProfile?: Prisma.StaffProfileUpdateOneRequiredWithoutAssignmentsNestedInput
-  academicModule?: Prisma.AcademicModuleUpdateOneWithoutStaffAssignmentsNestedInput
 }
 
 export type ModuleStaffAssignmentUncheckedUpdateWithoutProgrammeModuleInput = {
@@ -743,7 +584,6 @@ export type ModuleStaffAssignmentUncheckedUpdateWithoutProgrammeModuleInput = {
   assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  academicModuleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ModuleStaffAssignmentUncheckedUpdateManyWithoutProgrammeModuleInput = {
@@ -753,7 +593,6 @@ export type ModuleStaffAssignmentUncheckedUpdateManyWithoutProgrammeModuleInput 
   assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  academicModuleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ModuleStaffAssignmentCreateManyStaffProfileInput = {
@@ -763,7 +602,6 @@ export type ModuleStaffAssignmentCreateManyStaffProfileInput = {
   assignedAt?: Date | string
   createdAt?: Date | string
   updatedAt?: Date | string
-  academicModuleId?: string | null
 }
 
 export type ModuleStaffAssignmentUpdateWithoutStaffProfileInput = {
@@ -773,7 +611,6 @@ export type ModuleStaffAssignmentUpdateWithoutStaffProfileInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   programmeModule?: Prisma.ProgrammeModuleUpdateOneRequiredWithoutStaffAssignmentsNestedInput
-  academicModule?: Prisma.AcademicModuleUpdateOneWithoutStaffAssignmentsNestedInput
 }
 
 export type ModuleStaffAssignmentUncheckedUpdateWithoutStaffProfileInput = {
@@ -783,7 +620,6 @@ export type ModuleStaffAssignmentUncheckedUpdateWithoutStaffProfileInput = {
   assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  academicModuleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ModuleStaffAssignmentUncheckedUpdateManyWithoutStaffProfileInput = {
@@ -793,7 +629,6 @@ export type ModuleStaffAssignmentUncheckedUpdateManyWithoutStaffProfileInput = {
   assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  academicModuleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -806,10 +641,8 @@ export type ModuleStaffAssignmentSelect<ExtArgs extends runtime.Types.Extensions
   assignedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  academicModuleId?: boolean
   programmeModule?: boolean | Prisma.ProgrammeModuleDefaultArgs<ExtArgs>
   staffProfile?: boolean | Prisma.StaffProfileDefaultArgs<ExtArgs>
-  academicModule?: boolean | Prisma.ModuleStaffAssignment$academicModuleArgs<ExtArgs>
 }, ExtArgs["result"]["moduleStaffAssignment"]>
 
 export type ModuleStaffAssignmentSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -820,10 +653,8 @@ export type ModuleStaffAssignmentSelectCreateManyAndReturn<ExtArgs extends runti
   assignedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  academicModuleId?: boolean
   programmeModule?: boolean | Prisma.ProgrammeModuleDefaultArgs<ExtArgs>
   staffProfile?: boolean | Prisma.StaffProfileDefaultArgs<ExtArgs>
-  academicModule?: boolean | Prisma.ModuleStaffAssignment$academicModuleArgs<ExtArgs>
 }, ExtArgs["result"]["moduleStaffAssignment"]>
 
 export type ModuleStaffAssignmentSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -834,10 +665,8 @@ export type ModuleStaffAssignmentSelectUpdateManyAndReturn<ExtArgs extends runti
   assignedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  academicModuleId?: boolean
   programmeModule?: boolean | Prisma.ProgrammeModuleDefaultArgs<ExtArgs>
   staffProfile?: boolean | Prisma.StaffProfileDefaultArgs<ExtArgs>
-  academicModule?: boolean | Prisma.ModuleStaffAssignment$academicModuleArgs<ExtArgs>
 }, ExtArgs["result"]["moduleStaffAssignment"]>
 
 export type ModuleStaffAssignmentSelectScalar = {
@@ -848,24 +677,20 @@ export type ModuleStaffAssignmentSelectScalar = {
   assignedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  academicModuleId?: boolean
 }
 
-export type ModuleStaffAssignmentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "programmeModuleId" | "staffProfileId" | "assignmentType" | "assignedAt" | "createdAt" | "updatedAt" | "academicModuleId", ExtArgs["result"]["moduleStaffAssignment"]>
+export type ModuleStaffAssignmentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "programmeModuleId" | "staffProfileId" | "assignmentType" | "assignedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["moduleStaffAssignment"]>
 export type ModuleStaffAssignmentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   programmeModule?: boolean | Prisma.ProgrammeModuleDefaultArgs<ExtArgs>
   staffProfile?: boolean | Prisma.StaffProfileDefaultArgs<ExtArgs>
-  academicModule?: boolean | Prisma.ModuleStaffAssignment$academicModuleArgs<ExtArgs>
 }
 export type ModuleStaffAssignmentIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   programmeModule?: boolean | Prisma.ProgrammeModuleDefaultArgs<ExtArgs>
   staffProfile?: boolean | Prisma.StaffProfileDefaultArgs<ExtArgs>
-  academicModule?: boolean | Prisma.ModuleStaffAssignment$academicModuleArgs<ExtArgs>
 }
 export type ModuleStaffAssignmentIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   programmeModule?: boolean | Prisma.ProgrammeModuleDefaultArgs<ExtArgs>
   staffProfile?: boolean | Prisma.StaffProfileDefaultArgs<ExtArgs>
-  academicModule?: boolean | Prisma.ModuleStaffAssignment$academicModuleArgs<ExtArgs>
 }
 
 export type $ModuleStaffAssignmentPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -873,7 +698,6 @@ export type $ModuleStaffAssignmentPayload<ExtArgs extends runtime.Types.Extensio
   objects: {
     programmeModule: Prisma.$ProgrammeModulePayload<ExtArgs>
     staffProfile: Prisma.$StaffProfilePayload<ExtArgs>
-    academicModule: Prisma.$AcademicModulePayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -883,7 +707,6 @@ export type $ModuleStaffAssignmentPayload<ExtArgs extends runtime.Types.Extensio
     assignedAt: Date
     createdAt: Date
     updatedAt: Date
-    academicModuleId: string | null
   }, ExtArgs["result"]["moduleStaffAssignment"]>
   composites: {}
 }
@@ -1280,7 +1103,6 @@ export interface Prisma__ModuleStaffAssignmentClient<T, Null = never, ExtArgs ex
   readonly [Symbol.toStringTag]: "PrismaPromise"
   programmeModule<T extends Prisma.ProgrammeModuleDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProgrammeModuleDefaultArgs<ExtArgs>>): Prisma.Prisma__ProgrammeModuleClient<runtime.Types.Result.GetResult<Prisma.$ProgrammeModulePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   staffProfile<T extends Prisma.StaffProfileDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StaffProfileDefaultArgs<ExtArgs>>): Prisma.Prisma__StaffProfileClient<runtime.Types.Result.GetResult<Prisma.$StaffProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  academicModule<T extends Prisma.ModuleStaffAssignment$academicModuleArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ModuleStaffAssignment$academicModuleArgs<ExtArgs>>): Prisma.Prisma__AcademicModuleClient<runtime.Types.Result.GetResult<Prisma.$AcademicModulePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1317,7 +1139,6 @@ export interface ModuleStaffAssignmentFieldRefs {
   readonly assignedAt: Prisma.FieldRef<"ModuleStaffAssignment", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"ModuleStaffAssignment", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"ModuleStaffAssignment", 'DateTime'>
-  readonly academicModuleId: Prisma.FieldRef<"ModuleStaffAssignment", 'String'>
 }
     
 
@@ -1716,25 +1537,6 @@ export type ModuleStaffAssignmentDeleteManyArgs<ExtArgs extends runtime.Types.Ex
    * Limit how many ModuleStaffAssignments to delete.
    */
   limit?: number
-}
-
-/**
- * ModuleStaffAssignment.academicModule
- */
-export type ModuleStaffAssignment$academicModuleArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AcademicModule
-   */
-  select?: Prisma.AcademicModuleSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the AcademicModule
-   */
-  omit?: Prisma.AcademicModuleOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.AcademicModuleInclude<ExtArgs> | null
-  where?: Prisma.AcademicModuleWhereInput
 }
 
 /**
