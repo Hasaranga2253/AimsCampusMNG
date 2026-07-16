@@ -19,19 +19,41 @@ enum RoleName {
   LECTURER
   INTERNAL_MODERATOR
   PROGRAMME_COORDINATOR
+  MODULE_LEADER
   ADMIN
 }
 
+enum EnrollmentStatus {
+  ACTIVE
+  COMPLETED
+  WITHDRAWN
+  SUSPENDED
+}
+
+enum SemesterStatus {
+  UPCOMING
+  ACTIVE
+  COMPLETED
+}
+
+enum StaffAssignmentType {
+  LECTURER
+  MODULE_LEADER
+  INTERNAL_MODERATOR
+}
+
 model User {
-  id           String     @id @default(cuid())
-  firstName    String
-  lastName     String
-  email        String     @unique
-  passwordHash String
-  status       UserStatus @default(ACTIVE)
-  createdAt    DateTime   @default(now())
-  updatedAt    DateTime   @updatedAt
-  userRoles    UserRole[]
+  id             String          @id @default(cuid())
+  firstName      String
+  lastName       String
+  email          String          @unique
+  passwordHash   String
+  status         UserStatus      @default(ACTIVE)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  userRoles      UserRole[]
+  studentProfile StudentProfile?
+  staffProfile   StaffProfile?
 }
 
 model Role {
@@ -54,4 +76,167 @@ model UserRole {
   @@unique([userId, roleId])
   @@index([userId])
   @@index([roleId])
+}
+
+model Programme {
+  id               String               @id @default(cuid())
+  code             String               @unique
+  name             String
+  description      String?
+  durationYears    Int
+  isActive         Boolean              @default(true)
+  createdAt        DateTime             @default(now())
+  updatedAt        DateTime             @updatedAt
+  batches          Batch[]
+  programmeModules ProgrammeModule[]
+  enrollments      StudentEnrollment[]
+}
+
+model AcademicYear {
+  id        String     @id @default(cuid())
+  name      String     @unique
+  startDate DateTime
+  endDate   DateTime
+  isActive  Boolean    @default(false)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  semesters Semester[]
+}
+
+model Semester {
+  id             String         @id @default(cuid())
+  academicYearId String
+  number         Int
+  name           String
+  startDate      DateTime
+  endDate        DateTime
+  status         SemesterStatus @default(UPCOMING)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  academicYear   AcademicYear      @relation(fields: [academicYearId], references: [id], onDelete: Restrict)
+  programmeLinks ProgrammeModule[]
+
+  @@unique([academicYearId, number])
+  @@index([academicYearId])
+}
+
+model Batch {
+  id          String              @id @default(cuid())
+  programmeId String
+  code        String              @unique
+  name        String
+  startYear   Int
+  endYear     Int?
+  isActive    Boolean             @default(true)
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  programme  Programme            @relation(fields: [programmeId], references: [id], onDelete: Restrict)
+  enrollments StudentEnrollment[]
+
+  @@index([programmeId])
+}
+
+model AcademicModule {
+  id               String                  @id @default(cuid())
+  code             String                  @unique
+  name             String
+  description      String?
+  credits          Int
+  isActive         Boolean                 @default(true)
+  createdAt        DateTime                @default(now())
+  updatedAt        DateTime                @updatedAt
+
+  programmeLinks   ProgrammeModule[]
+  
+}
+
+model ProgrammeModule {
+  id               String         @id @default(cuid())
+  programmeId      String
+  academicModuleId String
+  semesterId       String
+  yearLevel        Int
+  isCore           Boolean        @default(true)
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  programme       Programme      @relation(fields: [programmeId], references: [id], onDelete: Cascade)
+  academicModule  AcademicModule @relation(fields: [academicModuleId], references: [id], onDelete: Restrict)
+  semester        Semester       @relation(fields: [semesterId], references: [id], onDelete: Restrict)
+  staffAssignments ModuleStaffAssignment[]
+
+  @@unique([programmeId, academicModuleId, semesterId])
+  @@index([programmeId])
+  @@index([academicModuleId])
+  @@index([semesterId])
+}
+
+model StudentProfile {
+  id          String              @id @default(cuid())
+  userId      String              @unique
+  studentId   String              @unique
+  phone       String?
+  address     String?
+  dateOfBirth DateTime?
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  user        User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  enrollments StudentEnrollment[]
+}
+
+model StaffProfile {
+  id          String                  @id @default(cuid())
+  userId      String                  @unique
+  staffId     String                  @unique
+  phone       String?
+  department  String?
+  designation String?
+  createdAt   DateTime                @default(now())
+  updatedAt   DateTime                @updatedAt
+
+  user        User                    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  assignments ModuleStaffAssignment[]
+}
+
+model StudentEnrollment {
+  id               String           @id @default(cuid())
+  studentProfileId String
+  programmeId      String
+  batchId          String
+  enrollmentDate   DateTime         @default(now())
+  status           EnrollmentStatus @default(ACTIVE)
+  completedAt      DateTime?
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  studentProfile StudentProfile @relation(fields: [studentProfileId], references: [id], onDelete: Cascade)
+  programme      Programme      @relation(fields: [programmeId], references: [id], onDelete: Restrict)
+  batch          Batch          @relation(fields: [batchId], references: [id], onDelete: Restrict)
+
+  @@unique([studentProfileId, programmeId, batchId])
+  @@index([studentProfileId])
+  @@index([programmeId])
+  @@index([batchId])
+  @@index([status])
+}
+
+model ModuleStaffAssignment {
+  id                String              @id @default(cuid())
+  programmeModuleId String
+  staffProfileId    String
+  assignmentType    StaffAssignmentType
+  assignedAt        DateTime            @default(now())
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+
+  programmeModule ProgrammeModule @relation(fields: [programmeModuleId], references: [id], onDelete: Cascade)
+  staffProfile    StaffProfile    @relation(fields: [staffProfileId], references: [id], onDelete: Cascade)
+
+  @@unique([programmeModuleId, staffProfileId, assignmentType])
+  @@index([programmeModuleId])
+  @@index([staffProfileId])
+  @@index([assignmentType])
 }

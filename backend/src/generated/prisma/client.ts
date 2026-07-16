@@ -54,3 +54,53 @@ export type Role = Prisma.RoleModel
  * 
  */
 export type UserRole = Prisma.UserRoleModel
+/**
+ * Model Programme
+ * 
+ */
+export type Programme = Prisma.ProgrammeModel
+/**
+ * Model AcademicYear
+ * 
+ */
+export type AcademicYear = Prisma.AcademicYearModel
+/**
+ * Model Semester
+ * 
+ */
+export type Semester = Prisma.SemesterModel
+/**
+ * Model Batch
+ * 
+ */
+export type Batch = Prisma.BatchModel
+/**
+ * Model AcademicModule
+ * 
+ */
+export type AcademicModule = Prisma.AcademicModuleModel
+/**
+ * Model ProgrammeModule
+ * 
+ */
+export type ProgrammeModule = Prisma.ProgrammeModuleModel
+/**
+ * Model StudentProfile
+ * 
+ */
+export type StudentProfile = Prisma.StudentProfileModel
+/**
+ * Model StaffProfile
+ * 
+ */
+export type StaffProfile = Prisma.StaffProfileModel
+/**
+ * Model StudentEnrollment
+ * 
+ */
+export type StudentEnrollment = Prisma.StudentEnrollmentModel
+/**
+ * Model ModuleStaffAssignment
+ * 
+ */
+export type ModuleStaffAssignment = Prisma.ModuleStaffAssignmentModel
